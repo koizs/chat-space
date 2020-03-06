@@ -30,32 +30,35 @@ Things you may want to cover:
 |email|string|null: false|
 |password|string|null: false|
 ### Association
-- has_many, through :groops
 - has_many :messages
+- has_many :groups, through: :users_groups
+- has_many :users_groups
 
 
-## groopテーブル
+## groupテーブル
 |Column|Type|Options|
 |------|----|-------|
-|groop|string|null: false|
-|add|string|null: false|
+|name|string|null: false|
 ### Association
-- has_many through :users
+- has_many :users, through: :users_groups
 - has_many messages
+- has_many :users_groups
 
-## users_groopテーブル
+## users_groupsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |user_id|integer|null: false, foreign_key: true|
-|groop_id|integer|null: false, foreign_key: true|
+|group_id|integer|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
-- belongs_to :groop
+- belongs_to :group
 
 ## messageテーブル
 |Column|Type|Options|
 |------|----|-------|
-|text|text|null: false|
-|image|image|null: false|
+|text|text|
+|image|image|
+|user_id|integer|null: false, foreign_key: true|
+|group_id|integer|null: false, foreign_ke
 - belongs_to :user
-- belongs_to :groop
+- belongs_to :group
