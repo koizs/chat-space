@@ -4,12 +4,16 @@
       = current_user.name
     .side-bar__user-name--menu
       .side-bar__user-name--menu--icon
-        = link_to "#" do
+        = link_to new_group_path do
           = icon('fas', 'pen-square', class: 'icon')
       .side-bar__user-name--menu--icon2
         = link_to edit_user_path(current_user) do
           = icon('fas', 'cog', class: 'icon')
   .side-bar__group-list
-    techcamp
-    .side-bar__group-list--message
-      まだメッセージがありません
+    - current_user.groups.each do |group|
+      .group
+        = link_to '#' do
+          .group__name
+            = group.name
+          .group__nessage
+            メッセージはまだありません
