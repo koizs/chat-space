@@ -41,14 +41,25 @@
     }
   }
   &__group-list {
+    a {
+      color: #ffffff;
+      text-decoration: none;
+    }
     background-color: #2f3e51;
     height: calc(100vh - 100px);
-    font-size: 15px;
-    color: #ffffff;
-    padding: 20px 20px 5px 20px;
-    &--message {
-      font-size: 11px;
-      padding-bottom: 40px;
+    padding: 0 20px;
+    .group {
+      box-sizing: border-box;
+      padding: 20px 0 40px;
+      &__name {
+        color: #ffffff;
+        font-size: 15px;
+      }
+      &__message {
+        color: #ffffff;
+        font-size: 11px;
+        margin-top: 5px;
+      }
     }
   }
 }
@@ -72,6 +83,8 @@
       &--member {
         font-size: 12px;
         color: #999999;
+        display: flex;
+        padding-top: 20px;
       }
     }
     &--edit {
@@ -115,24 +128,25 @@
     height: 90px;
     display: flex;
     padding: 20px 80px;
-      &--foom {
+      .footer--foom {
         width: 100%;
         height: 50px;
         background-color: #ffffff;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 0 10px 0 10px;
-        &--text {
-          color: gray;
-          justify-content: space-between;
-          line-height: center;
-        }
-        &--image {
-           input{display: none;}
-        }
+        color: gray;
+        justify-content: space-between;
+        line-height: center;
+        border: none;
       }
-    &--send-btn {
+      .foom--image {
+        padding-right: 10px;
+        .hidden {display: none;}
+        color: black;
+      }
+      
+    .footer--submit {
       width: 100px;
       height: 50px;
       background-color: #38aef0;
